@@ -1,0 +1,13 @@
+name: repo-dispatch
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types:
+      - repo-dispatch
+
+jobs:
+  repo-dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: test
+        run: echo "${{ steps.get-pr-url.outputs.MERGED_PR_URL }}"
